@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "code": "CUS001",
+      "description": "Custom check to ensure the project tag is applied to EC2 instances",
+      "impact": "By not having project we can't keep track of billing",
+      "resolution": "Add the project tag",
+      "requiredTypes": [
+        "resource"
+      ],
+      "requiredLabels": [
+        "aws_instance"
+      ],
+      "severity": "ERROR",
+      "matchSpec": {
+        "name": "tags",
+        "action": "contains",
+        "value": "project"
+      },
+      "errorMessage": "The required project tag was missing",
+      "relatedLinks": [
+        "https://github.com/devilskw/policies"
+      ]
+    }
+  ]   
+}
